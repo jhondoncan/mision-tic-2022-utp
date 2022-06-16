@@ -1,0 +1,40 @@
+{
+  "datos_basicos": [
+    {
+      "nombre": "Juan",
+      "apellido": "Perez",
+      "edad": 20,
+      "genero": "M",
+      "partidos": 7,
+      "partidos_ganados": 3,
+      "partidos_perdidos": 4
+    },
+    {
+      "nombre": "Richard",
+      "apellido": "Andrade",
+      "edad": 22,
+      "genero": "M",
+      "partidos": 6,
+      "partidos_ganados": 4,
+      "partidos_perdidos": 2
+    },
+    {
+      "nombre": "Jan",
+      "apellido": "Bonilla",
+      "edad": 24,
+      "genero": "M",
+      "partidos": 3,
+      "partidos_ganados": 3,
+      "partidos_perdidos": 0
+    },
+    {
+      "nombre": "Julian",
+      "apellido": "Romero",
+      "edad": 20,
+      "genero": "M",
+      "partidos": 10,
+      "partidos_ganados": 6,
+      "partidos_perdidos": 4
+    }
+  ]
+}
