@@ -1,16 +1,26 @@
 
 package sistema.empleadosGUI;
 import java.sql.*;
+import javax.swing.JOptionPane;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
 import sistema.empleadosDAL.conexion;
 import sistema.empleadosBL.empleadosBL;
 
 public class frmEmpleados extends javax.swing.JFrame {
-
+        
+    DefaultTableModel model;
+   
+    
     /**
      * Creates new form frmEmpleados
      */
     public frmEmpleados() {
         initComponents();
+        String [] titulos = {"Id", "Nombre", "Correo"};
+        model = new DefaultTableModel(null, titulos);
+        tblEmpleados.setModel(model);
+        mostrarDatos();
     }
 
     /**
@@ -49,7 +59,7 @@ public class frmEmpleados extends javax.swing.JFrame {
                 {null, null, null}
             },
             new String [] {
-                "Id", "Nombre", "Correo"
+                "Campo1", "Campo2", "Campo3"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -58,6 +68,11 @@ public class frmEmpleados extends javax.swing.JFrame {
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
+            }
+        });
+        tblEmpleados.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tblEmpleadosMouseClicked(evt);
             }
         });
         jScrollPane1.setViewportView(tblEmpleados);
@@ -89,6 +104,11 @@ public class frmEmpleados extends javax.swing.JFrame {
 
         btnCancelar.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         btnCancelar.setText("Cancelar");
+        btnCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCancelarActionPerformed(evt);
+            }
+        });
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel1.setText("Id:");
@@ -99,7 +119,6 @@ public class frmEmpleados extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel3.setText("Correo:");
 
-        txtId.setEditable(false);
         txtId.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         txtId.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -149,7 +168,7 @@ public class frmEmpleados extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(btnBorrar, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(btnCancelar)))))
+                                .addComponent(btnCancelar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
                 .addContainerGap(19, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -185,32 +204,50 @@ public class frmEmpleados extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnBorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBorrarActionPerformed
-        // TODO add your handling code here:
+        if (JOptionPane.showConfirmDialog(null, "¿Desea borrar este empleado?", "EMPLEADOS",
+        JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
+            conexion objtConexion = new conexion();
+        empleadosBL objtEmpleados = recuperarDatosGUI();
+        String strSentenciaBorrar = String.format
+        ("DELETE FROM empleados WHERE id = %d", objtEmpleados.getId());
+        objtConexion.ejecutarSentenciaSQL(strSentenciaBorrar);
+        txtId.setText("");
+        txtNombre.setText("");
+        txtCorreo.setText("");
+        this.mostrarDatos();
+        JOptionPane.showMessageDialog(rootPane, "¡Empleado borrado exitosamente!", "EMPLEADOS", JOptionPane.INFORMATION_MESSAGE);
+        }     
+            
+                              
+           
     }//GEN-LAST:event_btnBorrarActionPerformed
 
     private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
         conexion objtConexion = new conexion();
         empleadosBL objtEmpleados = recuperarDatosGUI();
         String strSentenciaInsertar = String.format
-        ("INSERT INTO empleados (id, nombre, correo) VALUES (NULL,'%s','%s')", objtEmpleados.getNombre(), objtEmpleados.getCorreo());
+        ("INSERT INTO empleados (id, nombre, correo) VALUES (%d,'%s','%s')", objtEmpleados.getId(), objtEmpleados.getNombre(), objtEmpleados.getCorreo());
         objtConexion.ejecutarSentenciaSQL(strSentenciaInsertar);
-        
-        try {
-            ResultSet resultado = objtConexion.consultarRegistros("SELECT * FROM empleados");
-            while (resultado.next()){
-                System.out.println(resultado.getString("id"));
-                System.out.println(resultado.getString("nombre"));
-                System.out.println(resultado.getString("correo"));
-            }
-        }
-        catch(Exception e){
-            System.out.println(e);
-        }
-        
+        txtId.setText("");
+        txtNombre.setText("");
+        txtCorreo.setText("");
+        this.mostrarDatos();
+        JOptionPane.showMessageDialog(rootPane, "¡Empleado agregado exitosamente!", "EMPLEADOS", JOptionPane.INFORMATION_MESSAGE);
+                              
     }//GEN-LAST:event_btnAgregarActionPerformed
 
     private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
-        // TODO add your handling code here:
+       conexion objtConexion = new conexion();
+        empleadosBL objtEmpleados = recuperarDatosGUI();
+        String strSentenciaActualizar= String.format("UPDATE empleados SET nombre ='%s', "
+                + "correo = '%s' WHERE id = %d", objtEmpleados.getNombre(), objtEmpleados.getCorreo(), objtEmpleados.getId());
+        objtConexion.ejecutarSentenciaSQL(strSentenciaActualizar);
+
+        txtId.setText("");
+        txtNombre.setText("");
+        txtCorreo.setText("");
+        JOptionPane.showMessageDialog(rootPane, "¡Empleado actualizado exitosamente!", "EMPLEADOS", JOptionPane.INFORMATION_MESSAGE);
+        this.mostrarDatos();
     }//GEN-LAST:event_btnEditarActionPerformed
 
     private void txtIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIdActionPerformed
@@ -220,6 +257,25 @@ public class frmEmpleados extends javax.swing.JFrame {
     private void txtNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtNombreActionPerformed
+
+    private void tblEmpleadosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblEmpleadosMouseClicked
+        // TODO add your handling code here:
+        if(evt.getClickCount() ==1 ){
+            JTable receptor = (JTable) evt.getSource();
+            txtId.setText(receptor.getModel().getValueAt(receptor.getSelectedRow(),0).toString());
+            txtNombre.setText(receptor.getModel().getValueAt(receptor.getSelectedRow(),1).toString());
+            txtCorreo.setText(receptor.getModel().getValueAt(receptor.getSelectedRow(),2).toString());
+        }
+
+    }//GEN-LAST:event_tblEmpleadosMouseClicked
+
+    private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
+        if (JOptionPane.showConfirmDialog(null, "¿Desea salir del sistema?", "EMPLEADOS",
+        JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
+            System.exit(0);
+        }
+               
+    }//GEN-LAST:event_btnCancelarActionPerformed
 
     // METODO QUE RECUPERA LOS DATOS DE LA INTERFAZ DE USUARIO Y LAS ENVIA
     public empleadosBL recuperarDatosGUI(){
@@ -231,7 +287,27 @@ public class frmEmpleados extends javax.swing.JFrame {
         return objtEmpleados;         
     }
     
-    
+    public void mostrarDatos(){
+        while(model.getRowCount() >0){
+            model.removeRow(0);        
+        }
+        conexion objtConexion = new conexion();
+        try {
+            ResultSet resultado = objtConexion.consultarRegistros("SELECT * FROM empleados");
+            while (resultado.next()){
+                /*System.out.println(resultado.getString("id"));
+                System.out.println(resultado.getString("nombre"));
+                System.out.println(resultado.getString("correo"));
+                */
+                Object [] usuario = {
+                resultado.getString("id"), resultado.getString("nombre"), resultado.getString("correo")};
+                model.addRow(usuario);
+            }
+        }
+        catch(Exception e){
+            System.out.println(e);
+        }
+    }
     
     /**
      * @param args the command line arguments
