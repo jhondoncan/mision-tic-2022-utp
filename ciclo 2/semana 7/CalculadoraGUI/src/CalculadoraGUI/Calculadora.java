@@ -1,8 +1,7 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package CalculadoraGUI;
+
+import javax.script.ScriptEngine;
+import javax.script.ScriptEngineManager;
 
 /**
  *
@@ -10,9 +9,10 @@ package CalculadoraGUI;
  */
 public class Calculadora extends javax.swing.JFrame {
 
-    /**
-     * Creates new form Calculadora
-     */
+   ScriptEngineManager sem = new ScriptEngineManager();
+   ScriptEngine se = sem.getEngineByName("JavaScript");
+
+    
     public Calculadora() {
         initComponents();
         setLocationRelativeTo(null);
@@ -28,28 +28,28 @@ public class Calculadora extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        txtOperacion = new javax.swing.JLabel();
+        txtResultado = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
-        jButton7 = new javax.swing.JButton();
-        jButton8 = new javax.swing.JButton();
-        jButton9 = new javax.swing.JButton();
-        jButton10 = new javax.swing.JButton();
-        jButton11 = new javax.swing.JButton();
-        jButton12 = new javax.swing.JButton();
-        jButton13 = new javax.swing.JButton();
-        jButton14 = new javax.swing.JButton();
-        jButton15 = new javax.swing.JButton();
-        jButton16 = new javax.swing.JButton();
-        jButton17 = new javax.swing.JButton();
-        jButton18 = new javax.swing.JButton();
-        jButton19 = new javax.swing.JButton();
-        jButton21 = new javax.swing.JButton();
+        btnAC = new javax.swing.JButton();
+        btnCE = new javax.swing.JButton();
+        btnPorcentaje = new javax.swing.JButton();
+        btnDividir = new javax.swing.JButton();
+        btn7 = new javax.swing.JButton();
+        btn8 = new javax.swing.JButton();
+        btn9 = new javax.swing.JButton();
+        btnMultiplicar = new javax.swing.JButton();
+        btn6 = new javax.swing.JButton();
+        btn5 = new javax.swing.JButton();
+        btn4 = new javax.swing.JButton();
+        btnRestar = new javax.swing.JButton();
+        btn3 = new javax.swing.JButton();
+        btn2 = new javax.swing.JButton();
+        btn1 = new javax.swing.JButton();
+        btnSumar = new javax.swing.JButton();
+        btn0 = new javax.swing.JButton();
+        btnPunto = new javax.swing.JButton();
+        btnIgual = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("CALCULADORA");
@@ -58,17 +58,17 @@ public class Calculadora extends javax.swing.JFrame {
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setBackground(new java.awt.Color(255, 255, 204));
+        jPanel1.setBackground(new java.awt.Color(204, 255, 204));
 
-        jLabel1.setBackground(new java.awt.Color(250, 250, 250));
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel1.setText("6x6");
+        txtOperacion.setBackground(new java.awt.Color(250, 250, 250));
+        txtOperacion.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        txtOperacion.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        txtOperacion.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        jLabel2.setBackground(new java.awt.Color(250, 250, 250));
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 22)); // NOI18N
-        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel2.setText("36");
+        txtResultado.setBackground(new java.awt.Color(250, 250, 250));
+        txtResultado.setFont(new java.awt.Font("Segoe UI", 1, 22)); // NOI18N
+        txtResultado.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        txtResultado.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -77,287 +77,287 @@ public class Calculadora extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(17, 17, 17)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 212, Short.MAX_VALUE))
+                    .addComponent(txtResultado, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(txtOperacion, javax.swing.GroupLayout.DEFAULT_SIZE, 212, Short.MAX_VALUE))
                 .addContainerGap(21, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel1)
+                .addContainerGap()
+                .addComponent(txtOperacion, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel2)
-                .addGap(21, 21, 21))
+                .addComponent(txtResultado, javax.swing.GroupLayout.DEFAULT_SIZE, 33, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 250, 80));
 
-        jPanel2.setBackground(new java.awt.Color(204, 255, 153));
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
-        jButton2.setBackground(new java.awt.Color(204, 255, 153));
-        jButton2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/b3.fw.png"))); // NOI18N
-        jButton2.setText("C");
-        jButton2.setBorder(null);
-        jButton2.setBorderPainted(false);
-        jButton2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jButton2.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/b3_presionado.fw.png"))); // NOI18N
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        btnAC.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnAC.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn1.png"))); // NOI18N
+        btnAC.setText("AC");
+        btnAC.setBorder(null);
+        btnAC.setBorderPainted(false);
+        btnAC.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btnAC.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnAC.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn1_pressed.png"))); // NOI18N
+        btnAC.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn1_pressed.png"))); // NOI18N
+        btnAC.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                btnACActionPerformed(evt);
             }
         });
 
-        jButton3.setBackground(new java.awt.Color(204, 255, 153));
-        jButton3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/b3.fw.png"))); // NOI18N
-        jButton3.setText("←");
-        jButton3.setBorder(null);
-        jButton3.setBorderPainted(false);
-        jButton3.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jButton3.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/b3_presionado.fw.png"))); // NOI18N
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        btnCE.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnCE.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn1.png"))); // NOI18N
+        btnCE.setText("CE");
+        btnCE.setBorder(null);
+        btnCE.setBorderPainted(false);
+        btnCE.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnCE.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn1_pressed.png"))); // NOI18N
+        btnCE.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn1_pressed.png"))); // NOI18N
+        btnCE.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                btnCEActionPerformed(evt);
             }
         });
 
-        jButton4.setBackground(new java.awt.Color(204, 255, 153));
-        jButton4.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/b3.fw.png"))); // NOI18N
-        jButton4.setText("%");
-        jButton4.setBorder(null);
-        jButton4.setBorderPainted(false);
-        jButton4.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jButton4.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/b3_presionado.fw.png"))); // NOI18N
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
+        btnPorcentaje.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnPorcentaje.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn3.png"))); // NOI18N
+        btnPorcentaje.setText("%");
+        btnPorcentaje.setBorder(null);
+        btnPorcentaje.setBorderPainted(false);
+        btnPorcentaje.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnPorcentaje.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn3_pressed.fw.png"))); // NOI18N
+        btnPorcentaje.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn3_pressed.fw.png"))); // NOI18N
+        btnPorcentaje.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+                btnPorcentajeActionPerformed(evt);
             }
         });
 
-        jButton5.setBackground(new java.awt.Color(204, 255, 153));
-        jButton5.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/b3.fw.png"))); // NOI18N
-        jButton5.setText("/");
-        jButton5.setBorder(null);
-        jButton5.setBorderPainted(false);
-        jButton5.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jButton5.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/b3_presionado.fw.png"))); // NOI18N
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
+        btnDividir.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnDividir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn3.png"))); // NOI18N
+        btnDividir.setText("/");
+        btnDividir.setBorder(null);
+        btnDividir.setBorderPainted(false);
+        btnDividir.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnDividir.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn3_pressed.fw.png"))); // NOI18N
+        btnDividir.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn3_pressed.fw.png"))); // NOI18N
+        btnDividir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
+                btnDividirActionPerformed(evt);
             }
         });
 
-        jButton6.setBackground(new java.awt.Color(204, 255, 153));
-        jButton6.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jButton6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/b3.fw.png"))); // NOI18N
-        jButton6.setText("7");
-        jButton6.setBorder(null);
-        jButton6.setBorderPainted(false);
-        jButton6.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jButton6.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/b3_presionado.fw.png"))); // NOI18N
-        jButton6.addActionListener(new java.awt.event.ActionListener() {
+        btn7.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btn7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn2.fw.png"))); // NOI18N
+        btn7.setText("7");
+        btn7.setBorder(null);
+        btn7.setBorderPainted(false);
+        btn7.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btn7.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn2_pressed.fw.png"))); // NOI18N
+        btn7.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn2_pressed.fw.png"))); // NOI18N
+        btn7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton6ActionPerformed(evt);
+                btn7ActionPerformed(evt);
             }
         });
 
-        jButton7.setBackground(new java.awt.Color(204, 255, 153));
-        jButton7.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jButton7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/b3.fw.png"))); // NOI18N
-        jButton7.setText("8");
-        jButton7.setBorder(null);
-        jButton7.setBorderPainted(false);
-        jButton7.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jButton7.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/b3_presionado.fw.png"))); // NOI18N
-        jButton7.addActionListener(new java.awt.event.ActionListener() {
+        btn8.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btn8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn2.fw.png"))); // NOI18N
+        btn8.setText("8");
+        btn8.setBorder(null);
+        btn8.setBorderPainted(false);
+        btn8.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btn8.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn2_pressed.fw.png"))); // NOI18N
+        btn8.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn2_pressed.fw.png"))); // NOI18N
+        btn8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton7ActionPerformed(evt);
+                btn8ActionPerformed(evt);
             }
         });
 
-        jButton8.setBackground(new java.awt.Color(204, 255, 153));
-        jButton8.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jButton8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/b3.fw.png"))); // NOI18N
-        jButton8.setText("9");
-        jButton8.setBorder(null);
-        jButton8.setBorderPainted(false);
-        jButton8.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jButton8.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/b3_presionado.fw.png"))); // NOI18N
-        jButton8.addActionListener(new java.awt.event.ActionListener() {
+        btn9.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btn9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn2.fw.png"))); // NOI18N
+        btn9.setText("9");
+        btn9.setBorder(null);
+        btn9.setBorderPainted(false);
+        btn9.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btn9.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn2_pressed.fw.png"))); // NOI18N
+        btn9.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn2_pressed.fw.png"))); // NOI18N
+        btn9.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton8ActionPerformed(evt);
+                btn9ActionPerformed(evt);
             }
         });
 
-        jButton9.setBackground(new java.awt.Color(204, 255, 153));
-        jButton9.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jButton9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/b3.fw.png"))); // NOI18N
-        jButton9.setText("X");
-        jButton9.setBorder(null);
-        jButton9.setBorderPainted(false);
-        jButton9.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jButton9.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/b3_presionado.fw.png"))); // NOI18N
-        jButton9.addActionListener(new java.awt.event.ActionListener() {
+        btnMultiplicar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnMultiplicar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn3.png"))); // NOI18N
+        btnMultiplicar.setText("X");
+        btnMultiplicar.setBorder(null);
+        btnMultiplicar.setBorderPainted(false);
+        btnMultiplicar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnMultiplicar.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn3_pressed.fw.png"))); // NOI18N
+        btnMultiplicar.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn3_pressed.fw.png"))); // NOI18N
+        btnMultiplicar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton9ActionPerformed(evt);
+                btnMultiplicarActionPerformed(evt);
             }
         });
 
-        jButton10.setBackground(new java.awt.Color(204, 255, 153));
-        jButton10.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jButton10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/b3.fw.png"))); // NOI18N
-        jButton10.setText("6");
-        jButton10.setBorder(null);
-        jButton10.setBorderPainted(false);
-        jButton10.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jButton10.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/b3_presionado.fw.png"))); // NOI18N
-        jButton10.addActionListener(new java.awt.event.ActionListener() {
+        btn6.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btn6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn2.fw.png"))); // NOI18N
+        btn6.setText("6");
+        btn6.setBorder(null);
+        btn6.setBorderPainted(false);
+        btn6.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btn6.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn2_pressed.fw.png"))); // NOI18N
+        btn6.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn2_pressed.fw.png"))); // NOI18N
+        btn6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton10ActionPerformed(evt);
+                btn6ActionPerformed(evt);
             }
         });
 
-        jButton11.setBackground(new java.awt.Color(204, 255, 153));
-        jButton11.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jButton11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/b3.fw.png"))); // NOI18N
-        jButton11.setText("5");
-        jButton11.setBorder(null);
-        jButton11.setBorderPainted(false);
-        jButton11.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jButton11.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/b3_presionado.fw.png"))); // NOI18N
-        jButton11.addActionListener(new java.awt.event.ActionListener() {
+        btn5.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btn5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn2.fw.png"))); // NOI18N
+        btn5.setText("5");
+        btn5.setBorder(null);
+        btn5.setBorderPainted(false);
+        btn5.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btn5.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn2_pressed.fw.png"))); // NOI18N
+        btn5.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn2_pressed.fw.png"))); // NOI18N
+        btn5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton11ActionPerformed(evt);
+                btn5ActionPerformed(evt);
             }
         });
 
-        jButton12.setBackground(new java.awt.Color(204, 255, 153));
-        jButton12.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jButton12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/b3.fw.png"))); // NOI18N
-        jButton12.setText("4");
-        jButton12.setBorder(null);
-        jButton12.setBorderPainted(false);
-        jButton12.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jButton12.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/b3_presionado.fw.png"))); // NOI18N
-        jButton12.addActionListener(new java.awt.event.ActionListener() {
+        btn4.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btn4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn2.fw.png"))); // NOI18N
+        btn4.setText("4");
+        btn4.setBorder(null);
+        btn4.setBorderPainted(false);
+        btn4.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btn4.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn2_pressed.fw.png"))); // NOI18N
+        btn4.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn2_pressed.fw.png"))); // NOI18N
+        btn4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton12ActionPerformed(evt);
+                btn4ActionPerformed(evt);
             }
         });
 
-        jButton13.setBackground(new java.awt.Color(204, 255, 153));
-        jButton13.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jButton13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/b3.fw.png"))); // NOI18N
-        jButton13.setText("-");
-        jButton13.setBorder(null);
-        jButton13.setBorderPainted(false);
-        jButton13.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jButton13.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/b3_presionado.fw.png"))); // NOI18N
-        jButton13.addActionListener(new java.awt.event.ActionListener() {
+        btnRestar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnRestar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn3.png"))); // NOI18N
+        btnRestar.setText("-");
+        btnRestar.setBorder(null);
+        btnRestar.setBorderPainted(false);
+        btnRestar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnRestar.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn3_pressed.fw.png"))); // NOI18N
+        btnRestar.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn3_pressed.fw.png"))); // NOI18N
+        btnRestar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton13ActionPerformed(evt);
+                btnRestarActionPerformed(evt);
             }
         });
 
-        jButton14.setBackground(new java.awt.Color(204, 255, 153));
-        jButton14.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jButton14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/b3.fw.png"))); // NOI18N
-        jButton14.setText("3");
-        jButton14.setBorder(null);
-        jButton14.setBorderPainted(false);
-        jButton14.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jButton14.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/b3_presionado.fw.png"))); // NOI18N
-        jButton14.addActionListener(new java.awt.event.ActionListener() {
+        btn3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btn3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn2.fw.png"))); // NOI18N
+        btn3.setText("3");
+        btn3.setBorder(null);
+        btn3.setBorderPainted(false);
+        btn3.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btn3.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn2_pressed.fw.png"))); // NOI18N
+        btn3.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn2_pressed.fw.png"))); // NOI18N
+        btn3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton14ActionPerformed(evt);
+                btn3ActionPerformed(evt);
             }
         });
 
-        jButton15.setBackground(new java.awt.Color(204, 255, 153));
-        jButton15.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jButton15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/b3.fw.png"))); // NOI18N
-        jButton15.setText("2");
-        jButton15.setBorder(null);
-        jButton15.setBorderPainted(false);
-        jButton15.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jButton15.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/b3_presionado.fw.png"))); // NOI18N
-        jButton15.addActionListener(new java.awt.event.ActionListener() {
+        btn2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btn2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn2.fw.png"))); // NOI18N
+        btn2.setText("2");
+        btn2.setBorder(null);
+        btn2.setBorderPainted(false);
+        btn2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btn2.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn2_pressed.fw.png"))); // NOI18N
+        btn2.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn2_pressed.fw.png"))); // NOI18N
+        btn2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton15ActionPerformed(evt);
+                btn2ActionPerformed(evt);
             }
         });
 
-        jButton16.setBackground(new java.awt.Color(204, 255, 153));
-        jButton16.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jButton16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/b3.fw.png"))); // NOI18N
-        jButton16.setText("1");
-        jButton16.setBorder(null);
-        jButton16.setBorderPainted(false);
-        jButton16.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jButton16.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/b3_presionado.fw.png"))); // NOI18N
-        jButton16.addActionListener(new java.awt.event.ActionListener() {
+        btn1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btn1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn2.fw.png"))); // NOI18N
+        btn1.setText("1");
+        btn1.setBorder(null);
+        btn1.setBorderPainted(false);
+        btn1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btn1.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn2_pressed.fw.png"))); // NOI18N
+        btn1.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn2_pressed.fw.png"))); // NOI18N
+        btn1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton16ActionPerformed(evt);
+                btn1ActionPerformed(evt);
             }
         });
 
-        jButton17.setBackground(new java.awt.Color(204, 255, 153));
-        jButton17.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jButton17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/b3.fw.png"))); // NOI18N
-        jButton17.setText("+");
-        jButton17.setBorder(null);
-        jButton17.setBorderPainted(false);
-        jButton17.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jButton17.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/b3_presionado.fw.png"))); // NOI18N
-        jButton17.addActionListener(new java.awt.event.ActionListener() {
+        btnSumar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnSumar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn3.png"))); // NOI18N
+        btnSumar.setText("+");
+        btnSumar.setBorder(null);
+        btnSumar.setBorderPainted(false);
+        btnSumar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnSumar.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn3_pressed.fw.png"))); // NOI18N
+        btnSumar.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn3_pressed.fw.png"))); // NOI18N
+        btnSumar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton17ActionPerformed(evt);
+                btnSumarActionPerformed(evt);
             }
         });
 
-        jButton18.setBackground(new java.awt.Color(204, 255, 153));
-        jButton18.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jButton18.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/b3.fw.png"))); // NOI18N
-        jButton18.setText("0");
-        jButton18.setBorder(null);
-        jButton18.setBorderPainted(false);
-        jButton18.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jButton18.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/b3_presionado.fw.png"))); // NOI18N
-        jButton18.addActionListener(new java.awt.event.ActionListener() {
+        btn0.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btn0.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn2.fw.png"))); // NOI18N
+        btn0.setText("0");
+        btn0.setBorder(null);
+        btn0.setBorderPainted(false);
+        btn0.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btn0.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn2_pressed.fw.png"))); // NOI18N
+        btn0.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn2_pressed.fw.png"))); // NOI18N
+        btn0.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton18ActionPerformed(evt);
+                btn0ActionPerformed(evt);
             }
         });
 
-        jButton19.setBackground(new java.awt.Color(204, 255, 153));
-        jButton19.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jButton19.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/b3.fw.png"))); // NOI18N
-        jButton19.setText(".");
-        jButton19.setBorder(null);
-        jButton19.setBorderPainted(false);
-        jButton19.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jButton19.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/b3_presionado.fw.png"))); // NOI18N
-        jButton19.addActionListener(new java.awt.event.ActionListener() {
+        btnPunto.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnPunto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn2.fw.png"))); // NOI18N
+        btnPunto.setText(".");
+        btnPunto.setBorder(null);
+        btnPunto.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnPunto.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn2_pressed.fw.png"))); // NOI18N
+        btnPunto.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn2_pressed.fw.png"))); // NOI18N
+        btnPunto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton19ActionPerformed(evt);
+                btnPuntoActionPerformed(evt);
             }
         });
 
-        jButton21.setBackground(new java.awt.Color(204, 255, 153));
-        jButton21.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jButton21.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/b3.fw.png"))); // NOI18N
-        jButton21.setText("=");
-        jButton21.setBorder(null);
-        jButton21.setBorderPainted(false);
-        jButton21.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jButton21.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/b3_presionado.fw.png"))); // NOI18N
-        jButton21.addActionListener(new java.awt.event.ActionListener() {
+        btnIgual.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnIgual.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn3.png"))); // NOI18N
+        btnIgual.setText("=");
+        btnIgual.setBorder(null);
+        btnIgual.setBorderPainted(false);
+        btnIgual.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnIgual.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn3_pressed.fw.png"))); // NOI18N
+        btnIgual.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn3_pressed.fw.png"))); // NOI18N
+        btnIgual.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton21ActionPerformed(evt);
+                btnIgualActionPerformed(evt);
             }
         });
 
@@ -369,154 +369,184 @@ public class Calculadora extends javax.swing.JFrame {
                 .addGap(14, 14, 14)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jButton18, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btn0, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton19, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(64, 64, 64)
-                        .addComponent(jButton21, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(btnPunto, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnIgual, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnSumar, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton14, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton10, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(btn3, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btn6, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btn7, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jButton15, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton11, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(btn2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(btn5, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(btn8, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(btn1, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(btn4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(btn9, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(btnAC, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnCE, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton16, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton12, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton13, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton17, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(10, Short.MAX_VALUE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                                .addGap(0, 2, Short.MAX_VALUE)
+                                .addComponent(btnRestar, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(btnDividir, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(btnMultiplicar, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(btnPorcentaje, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(0, 0, Short.MAX_VALUE)))))
+                .addContainerGap(8, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(20, 20, 20)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton2)
-                    .addComponent(jButton3)
-                    .addComponent(jButton4)
-                    .addComponent(jButton5))
+                    .addComponent(btnAC)
+                    .addComponent(btnCE)
+                    .addComponent(btnPorcentaje))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton6)
-                    .addComponent(jButton7)
-                    .addComponent(jButton8)
-                    .addComponent(jButton9))
+                    .addComponent(btn7)
+                    .addComponent(btn8)
+                    .addComponent(btn9)
+                    .addComponent(btnDividir))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton10)
-                    .addComponent(jButton11)
-                    .addComponent(jButton12)
-                    .addComponent(jButton13))
+                    .addComponent(btn6)
+                    .addComponent(btn5)
+                    .addComponent(btn4)
+                    .addComponent(btnMultiplicar))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton14)
-                    .addComponent(jButton15)
-                    .addComponent(jButton16)
-                    .addComponent(jButton17))
+                    .addComponent(btn3)
+                    .addComponent(btn2)
+                    .addComponent(btn1)
+                    .addComponent(btnRestar))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jButton19)
-                        .addComponent(jButton21))
-                    .addComponent(jButton18))
-                .addContainerGap(11, Short.MAX_VALUE))
+                        .addComponent(btnPunto)
+                        .addComponent(btnIgual)
+                        .addComponent(btnSumar))
+                    .addComponent(btn0))
+                .addContainerGap(26, Short.MAX_VALUE))
         );
 
-        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 80, 250, 280));
+        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 80, 250, 320));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+    private void btnIgualActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIgualActionPerformed
+        try {
+            String resultado = se.eval(txtOperacion.getText()).toString();
+            txtResultado.setText(resultado);             
+        } catch (Exception e) {
+            btnAC.doClick();
+        }
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_btnIgualActionPerformed
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton4ActionPerformed
+    private void btnPuntoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPuntoActionPerformed
+        addNumber(".");
+        btnIgual.doClick();
+    }//GEN-LAST:event_btnPuntoActionPerformed
 
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton5ActionPerformed
+    private void btn0ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn0ActionPerformed
+        addNumber("0");
+        btnIgual.doClick();
+    }//GEN-LAST:event_btn0ActionPerformed
 
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton6ActionPerformed
+    private void btnSumarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSumarActionPerformed
+       addNumber("+");
+    }//GEN-LAST:event_btnSumarActionPerformed
 
-    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton7ActionPerformed
+    private void btn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn1ActionPerformed
+        addNumber("1");
+        btnIgual.doClick();
+    }//GEN-LAST:event_btn1ActionPerformed
 
-    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton8ActionPerformed
+    private void btn2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn2ActionPerformed
+        addNumber("2");
+        btnIgual.doClick();
+    }//GEN-LAST:event_btn2ActionPerformed
 
-    private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton9ActionPerformed
+    private void btn3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn3ActionPerformed
+        addNumber("3");
+        btnIgual.doClick();
+    }//GEN-LAST:event_btn3ActionPerformed
 
-    private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton10ActionPerformed
+    private void btnRestarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRestarActionPerformed
+        addNumber("-");
+    }//GEN-LAST:event_btnRestarActionPerformed
 
-    private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton11ActionPerformed
+    private void btn4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn4ActionPerformed
+        addNumber("4");
+        btnIgual.doClick();
+    }//GEN-LAST:event_btn4ActionPerformed
 
-    private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton12ActionPerformed
+    private void btn5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn5ActionPerformed
+        addNumber("5");
+        btnIgual.doClick();
+    }//GEN-LAST:event_btn5ActionPerformed
 
-    private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton13ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton13ActionPerformed
+    private void btn6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn6ActionPerformed
+        addNumber("6");
+        btnIgual.doClick();
+    }//GEN-LAST:event_btn6ActionPerformed
 
-    private void jButton14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton14ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton14ActionPerformed
+    private void btnMultiplicarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMultiplicarActionPerformed
+        addNumber("*");
+    }//GEN-LAST:event_btnMultiplicarActionPerformed
 
-    private void jButton15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton15ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton15ActionPerformed
+    private void btn9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn9ActionPerformed
+        addNumber("9");
+        btnIgual.doClick();
+    }//GEN-LAST:event_btn9ActionPerformed
 
-    private void jButton16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton16ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton16ActionPerformed
+    private void btn8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn8ActionPerformed
+        addNumber("8");
+        btnIgual.doClick();
+    }//GEN-LAST:event_btn8ActionPerformed
 
-    private void jButton17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton17ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton17ActionPerformed
+    private void btn7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn7ActionPerformed
+        addNumber("7");
+        btnIgual.doClick();
+    }//GEN-LAST:event_btn7ActionPerformed
 
-    private void jButton18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton18ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton18ActionPerformed
+    private void btnDividirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDividirActionPerformed
+        addNumber("/");
+    }//GEN-LAST:event_btnDividirActionPerformed
 
-    private void jButton19ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton19ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton19ActionPerformed
+    private void btnPorcentajeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPorcentajeActionPerformed
+        addNumber("%");
+    }//GEN-LAST:event_btnPorcentajeActionPerformed
 
-    private void jButton21ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton21ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton21ActionPerformed
+    private void btnCEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCEActionPerformed
+        String texto = txtOperacion.getText().substring(0,txtOperacion.getText().length()-1);
+        txtOperacion.setText(texto);
+        btnIgual.doClick();
+
+    }//GEN-LAST:event_btnCEActionPerformed
+
+    private void btnACActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnACActionPerformed
+       txtOperacion.setText("");
+       txtResultado.setText("");
+    }//GEN-LAST:event_btnACActionPerformed
 
     /**
      * @param args the command line arguments
@@ -552,30 +582,35 @@ public class Calculadora extends javax.swing.JFrame {
             }
         });
     }
+    
+    public void addNumber(String digito){
+        txtOperacion.setText(txtOperacion.getText()+digito);
+    }
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton10;
-    private javax.swing.JButton jButton11;
-    private javax.swing.JButton jButton12;
-    private javax.swing.JButton jButton13;
-    private javax.swing.JButton jButton14;
-    private javax.swing.JButton jButton15;
-    private javax.swing.JButton jButton16;
-    private javax.swing.JButton jButton17;
-    private javax.swing.JButton jButton18;
-    private javax.swing.JButton jButton19;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton21;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton7;
-    private javax.swing.JButton jButton8;
-    private javax.swing.JButton jButton9;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
+    private javax.swing.JButton btn0;
+    private javax.swing.JButton btn1;
+    private javax.swing.JButton btn2;
+    private javax.swing.JButton btn3;
+    private javax.swing.JButton btn4;
+    private javax.swing.JButton btn5;
+    private javax.swing.JButton btn6;
+    private javax.swing.JButton btn7;
+    private javax.swing.JButton btn8;
+    private javax.swing.JButton btn9;
+    private javax.swing.JButton btnAC;
+    private javax.swing.JButton btnCE;
+    private javax.swing.JButton btnDividir;
+    private javax.swing.JButton btnIgual;
+    private javax.swing.JButton btnMultiplicar;
+    private javax.swing.JButton btnPorcentaje;
+    private javax.swing.JButton btnPunto;
+    private javax.swing.JButton btnRestar;
+    private javax.swing.JButton btnSumar;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JLabel txtOperacion;
+    private javax.swing.JLabel txtResultado;
     // End of variables declaration//GEN-END:variables
 }
