@@ -1,0 +1,58 @@
+CREATE DATABASE IF NOT EXISTS moives_rental;
+USE movies_rental;
+CREATE TABLE IF NOT EXISTS pelicula(
+	id INT(11) NOT NULL,
+	titulo VARCHAR(100) DEFAULT NULL, 
+	genero VARCHAR(100) DEFAULT NULL,
+	autor VARCHAR(100) DEFAULT NULL,
+	copias VARCHAR(100) DEFAULT NULL,
+	novedad TINYINT(4) DEFAULT NULL,
+	PRIMARY KEY (id)
+) ENGINE=INNODB DEFAULT CHARSET=LATIN1;
+
+
+CREATE TABLE IF NOT EXISTS usuario(
+	username INT(11) NOT NULL,
+	contrasena VARCHAR(100) DEFAULT NULL, 
+	nombre VARCHAR(100) DEFAULT NULL,
+	apellido VARCHAR(100) DEFAULT NULL,
+	email VARCHAR(100) DEFAULT NULL,
+	saldo DOUBLE(22,2) DEFAULT NULL,
+	premium TINYINT(4) DEFAULT NULL,
+	PRIMARY KEY (username)
+) ENGINE=INNODB DEFAULT CHARSET=LATIN1;
+
+
+
+CREATE TABLE IF NOT EXISTS alquiler(
+	id INT(11) NOT NULL,
+	username INT(11) NOT NULL,
+	fecha DATETIME NOT NULL, 
+	PRIMARY KEY (id, username, fecha) USING BTREE,
+	KEY FK_usuario (username),
+	CONSTRAINT FK_pelicula FOREIGN KEY (id) REFERENCES pelicula (id),
+	CONSTRAINT FK_usuario FOREIGN KEY (username) REFERENCES usuario (username)
+) ENGINE=INNODB DEFAULT CHARSET=LATIN1;
+
+
+INSERT INTO pelicula (id, titulo, genero, autor, copias, novedad) VALUES
+	(1, 'The Shape of Water', 'Romance/Fantasía', 'Guillermo del Toro', 5, 0),
+	(2, 'El laberinto del fauno', 'Fantasía/Bélico', 'Guillermo del Toro', 6, 1),
+	(3, 'El callejón de las almas perdidas', 'Suspenso/Drama', 'Guillermo del Toro', 7, 0),
+	(4, 'El orfanato', 'Terror/Suspenso', 'Juan Antonio Bayona', 2, 0),
+	(5, 'El Hobbit: Un viaje inesperado', 'Aventura/Fantasía', 'Peter Jackson', 10, 1),
+	(6, 'Splice: experimento mortal', 'Ciencia ficción/Terror', 'Vincenzo Narali', 6, 0),
+	(7, 'Depredador: La presa', 'Acción/Ciencia ficción', 'Dan Trachtenberg', 10, 0),
+	(8, 'Candyman: El Dominio de la Mente', 'Terror/Suspenso', 'Bernand Rose', 4, 0),
+	(9, 'Candyman: Ferewell to the Flesh', 'Terror/Slasher', 'Bill Condon', 8, 1),
+	(10, 'Hellraiser III: Hell on Earth', 'Terror/Slasher', 'Anthony Hickox', 4, 1),
+	(11, 'Quicksilver Highway', 'Terror/Comedia de terror', 'Mick Garris', 4, 1),
+	(12, 'Cuentos de terror 2', 'Terror/Fantasía', 'Michael Gornick', 5, 0),
+	(13, 'El resplandor', 'Terror', 'Stephen King', 8, 0),
+	(14, 'Graveyard Shift', 'Terror', 'Ralp S. Singleton', 6, 0),
+	(15, 'Thinner', 'Terror/Guion adaptado', 'Tom Holland', 3, 0),
+	(16, 'It (Eso)', 'Terror/Suspenso', 'Andrés Muschietti', 6, 0),
+	(17, 'En la hierba alta', 'Terror/Drama', 'Vicenzo Narali', 2, 1),
+	(18, 'The Shining', 'Terror/Misterio', 'Stanley Kubrick', 3, 0),
+	(19, 'Ron 237', 'Documental', 'Rodney Ascher', 4, 0);
+
