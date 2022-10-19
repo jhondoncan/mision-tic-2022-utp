@@ -37,6 +37,21 @@ exports.create = (req, res) => {
         });
 }
 
+exports.find = function (req, res) {
+    Empleado.find(function (err, empleados) {
+        res.json(empleados)
+    })
+}
+
+exports.findOne = function (req, res) {
+    Empleado.findOne({ _id: req.params.id }, function (err, empleado) {
+        res.json(empleado)
+    })
+}
+
+
+
+
 // Codigo de la profesora
 /*
 exports.create = (req, res) => {
