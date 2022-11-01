@@ -1,0 +1,99 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+* {
+    font-family: 'Poppins', sans-serif;
+
+}
+
+:root {
+    --prymary-color: #0d6efd;
+}
+
+
+
+#login-container {
+    /*  margin-top: 15%; */
+    border-radius: 20px;
+    border: 1px solid #0d6efd;
+    box-shadow: 0 0 10px 0 #0d6efd;
+    padding: 20px;
+    background-color: #fff;
+    height: 260px;
+    width: 350px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+
+#login-container h3 {
+    font-weight: 700;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+
+}
+
+#login-container form {
+    width: 100%;
+}
+
+#login-container button {
+    width: 40%;
+    transition: all 0.2s ease-in-out;
+    font-weight: 600;
+    border-radius: 20px;
+    margin-top: 5px;
+}
+
+#login-container button:hover {
+
+    transition: all 0.2s ease-in-out;
+    box-shadow: 0 0 10px 0 #0d6efd;
+    color: #0d6efd;
+    background-color: white;
+
+
+
+}
+
+#login-container .form-label {
+    float: left;
+    margin-bottom: 5px;
+    font-weight: 500;
+    margin-top: 5px;
+}
+
+#login-container .form-control {
+    width: 90%;
+    padding: 10px;
+    border-radius: 20px;
+    border: 1px solid #0d6efd;
+    margin-bottom: 15px;
+    text-align: center;
+    padding-left: 20px;
+    padding-right: 20px;
+    font-weight: 600;
+    margin-left: auto;
+    margin-right: auto;
+    transition: all 0.2s ease-in-out;
+
+}
+
+#login-container .form-control:focus {
+    border-color: #0d6efd;
+    box-shadow: #0d6efd;
+    width: 93%;
+    transition: all 0.2s ease-in-out;
+
+
+}
+
+#login-container .form-control::placeholder {
+    text-align: center;
+
+}
+
+#cardContainer {
+    border-radius: 20px;
+}
