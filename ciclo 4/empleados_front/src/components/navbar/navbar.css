@@ -1,0 +1,23 @@
+#navbar-title-css {
+
+    font-weight: bolder;
+    font-size: 1.3rem;
+
+}
+
+#dropdown-header .row:nth-child(1) {
+    font-size: 60px;
+    display: flex;
+    justify-content: center;
+}
+
+#dropdown-header .row:nth-child(2) {
+    font-size: 18px;
+    display: flex;
+    justify-content: center;
+    margin-top: 5px;
+}
+
+#cerrar-sesion {
+    color: red;
+}
