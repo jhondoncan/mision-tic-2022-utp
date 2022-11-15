@@ -2,6 +2,8 @@ import React from 'react';
 import axios from 'axios';
 import { Container, Form, Button, Row, Col } from 'react-bootstrap';
 import './login.css';
+import { isNull } from 'util';
+import Cookies from 'universal-cookie';
 import app from '../../app.json';
 
 const { APIHOST } = app;
@@ -16,14 +18,18 @@ export default class login extends React.Component {
     }
 
     iniciarSesion() {
-        axios.post(
-            `${APIHOST}/usuarios/login`,
-            {
-                usuario: this.state.usuario,
-                pass: this.state.pass,
-            }
+        axios.post(`${APIHOST}/usuarios/login`, {
+            usuario: this.state.usuario,
+            pass: this.state.pass,
+        }
         ).then((response) => {
-            console.log(response);
+            if (isNull(response.data.token)) {
+                alert('usuario y/o contraseña invalidas');
+            } else {
+
+            }
+            console.log(response.data.token);
+
         }).catch((err) => {
             console.log(err);
         });
@@ -41,9 +47,7 @@ export default class login extends React.Component {
                             </Row>
 
                             <Row>
-                                <Col
-
-                                >
+                                <Col>
                                     <Form>
                                         <Form.Group >
                                             {/* <Form.Label >Usuario:</Form.Label> */}
@@ -58,19 +62,15 @@ export default class login extends React.Component {
 
                                         </Form.Group>
 
-                                        <Button variant="primary" type="submit"
+                                        <Button variant="primary"
                                             onClick={() => this.iniciarSesion()}>
                                             Entrar
                                         </Button>
-
                                     </Form>
-
-
                                 </Col>
                             </Row>
                         </Col>
                     </Row>
-
                 </Container>
             </Container>
         );

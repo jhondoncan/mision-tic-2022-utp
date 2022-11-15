@@ -10,7 +10,7 @@ export default class inicio extends React.Component {
         return (
             <h1 style={{ marginTop: 300 }}>
                 <br />
-                Página de inicio
+                Página de inicio 🏠
             </h1>
         );
     }
